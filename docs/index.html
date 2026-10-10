@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>@three-ws/viewer-presets: Tuned visual presets for three</title>
+<meta name="description" content="Tuned visual presets for three.ws avatar viewers — light rigs, floor reflection, bloom, and PBR material presets (chrome/gold/glass/…) with seeded variants.">
+<link rel="canonical" href="https://nirholas.github.io/three-ws-viewer-presets/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="@three-ws/viewer-presets">
+<meta property="og:description" content="Tuned visual presets for three.ws avatar viewers — light rigs, floor reflection, bloom, and PBR material presets (chrome/gold/glass/…) with seeded variants.">
+<meta property="og:url" content="https://nirholas.github.io/three-ws-viewer-presets/">
+<meta property="og:image" content="https://nirholas.github.io/three-ws-viewer-presets/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="alternate" type="text/plain" href="https://nirholas.github.io/three-ws-viewer-presets/llms.txt" title="llms.txt">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareSourceCode","name":"@three-ws/viewer-presets","description":"Tuned visual presets for three.ws avatar viewers — light rigs, floor reflection, bloom, and PBR material presets (chrome/gold/glass/…) with seeded variants.","codeRepository":"https://github.com/nirholas/three-ws-viewer-presets","url":"https://nirholas.github.io/three-ws-viewer-presets/","programmingLanguage":"JavaScript","license":"https://spdx.org/licenses/Apache-2.0","version":"0.4.1","runtimePlatform":"Node.js","isPartOf":{"@type":"WebSite","name":"three.ws","url":"https://three.ws"}}</script>
+<style>
+:root{--bg:#fff;--fg:#0f172a;--mut:#475569;--line:#e2e8f0;--code:#f1f5f9;--acc:#6d28d9}
+@media (prefers-color-scheme:dark){:root{--bg:#0b1020;--fg:#e2e8f0;--mut:#94a3b8;--line:#1e293b;--code:#111a33;--acc:#a78bfa}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.65 system-ui,-apple-system,Segoe UI,sans-serif}
+header{border-bottom:1px solid var(--line)}.bar{max-width:880px;margin:0 auto;padding:14px 20px;display:flex;gap:18px;align-items:center;flex-wrap:wrap}
+.bar a{color:var(--mut);text-decoration:none;font-size:14px}.bar a:hover,.bar a:focus-visible{color:var(--acc)}.bar b{color:var(--fg);margin-right:auto}
+main{max-width:880px;margin:0 auto;padding:28px 20px 80px}h1,h2,h3{line-height:1.25}h2{margin-top:2.2em;padding-bottom:.3em;border-bottom:1px solid var(--line)}
+a{color:var(--acc)}pre{background:var(--code);padding:14px 16px;border-radius:8px;overflow:auto}code{background:var(--code);padding:.1em .35em;border-radius:4px;font-size:.92em}pre code{padding:0;background:none}
+table{border-collapse:collapse;display:block;overflow:auto}th,td{border:1px solid var(--line);padding:6px 10px;text-align:left}img{max-width:100%}
+</style>
+</head>
+<body>
+<header><nav class="bar" aria-label="Project"><b>@three-ws/viewer-presets</b><a href="https://github.com/nirholas/three-ws-viewer-presets">GitHub</a><a href="https://www.npmjs.com/package/@three-ws/viewer-presets">npm</a><a href="llms.txt">llms.txt</a><a href="https://three.ws">three.ws</a></nav></header>
+<main>
+<p align="center">
+  <a href="https://three.ws"><img src="https://three.ws/three-ws-mcp-icon.svg" width="72" height="72" alt="three.ws" /></a>
+</p><h1 align="center">@three-ws/viewer-presets</h1><p align="center"><strong>Tuned light rig, floor reflection, and bloom presets for three.ws avatar viewers - visage-derived, framework-agnostic.</strong></p><p align="center">
+  <a href="https://www.npmjs.com/package/@three-ws/viewer-presets"><img alt="npm" src="https://img.shields.io/npm/v/@three-ws/viewer-presets?logo=npm&color=cb3837"></a>
+  <a href="https://www.npmjs.com/package/@three-ws/viewer-presets"><img alt="downloads" src="https://img.shields.io/npm/dm/@three-ws/viewer-presets?color=cb3837"></a>
+  <img alt="license" src="https://img.shields.io/npm/l/@three-ws/viewer-presets?color=3b82f6">
+  <img alt="node" src="https://img.shields.io/node/v/@three-ws/viewer-presets?color=339933&logo=node.js">
+</p><p align="center">
+  <a href="#install">Install</a> ·
+  <a href="#usage">Usage</a> ·
+  <a href="#presets">Presets</a> ·
+  <a href="#api">API</a> ·
+  <a href="https://three.ws">three.ws</a>
+</p><hr>
+<blockquote>
+<p><code>@three-ws/viewer-presets</code> is a small, data-first package of visual presets for
+3D avatar viewers: a five-light rig, floor-reflection parameters, and a bloom
+configuration. The tuning values are derived from Ready Player Me&#39;s open-source
+<a href="https://github.com/readyplayerme/visage"><code>visage</code></a> viewer (MIT) and re-tuned for
+three.ws, so avatars render color-accurate to that reference setup. It&#39;s
+framework-agnostic: presets are plain frozen objects, and the one factory
+(<code>buildLightRig</code>) takes your <code>THREE</code> namespace as an argument instead of importing
+Three.js itself.</p>
+</blockquote>
+<h2>Install</h2>
+<pre><code class="language-bash">npm install @three-ws/viewer-presets
+</code></pre>
+<p><code>three</code> (<code>&gt;=0.150.0</code>) is an <strong>optional</strong> peer dependency - only <code>buildLightRig()</code>
+touches it, and you pass your own <code>THREE</code> namespace in. The preset constants and the
+<code>floorReflectionConfig</code> / <code>bloomConfig</code> helpers are pure data and need nothing.</p>
+<h2>Usage</h2>
+<pre><code class="language-js">import * as THREE from &#39;three&#39;;
+import { buildLightRig, floorReflectionConfig, bloomConfig } from &#39;@three-ws/viewer-presets&#39;;
+
+// 1. Build the five-light avatar rig as a THREE.Group and add it to your scene.
+const { group, headTarget, shoeTarget } = buildLightRig(THREE);
+scene.add(group);
+
+// 2. Floor reflection config - `color` must match your canvas background.
+const floor = floorReflectionConfig({ color: &#39;#0b0b12&#39; });
+// feed `floor` into MeshReflectorMaterial (or your own reflector)
+
+// 3. Bloom config - feed into the `postprocessing` Bloom effect (or equivalent).
+const bloom = bloomConfig({ intensity: 0.15 });
+</code></pre>
+<p>You can also import each preset from its own subpath:</p>
+<pre><code class="language-js">import { LIGHT_CONFIG, buildLightRig } from &#39;@three-ws/viewer-presets/lights&#39;;
+import { FLOOR_REFLECTION_DEFAULTS, floorReflectionConfig } from &#39;@three-ws/viewer-presets/floor&#39;;
+import { BLOOM_DEFAULTS, bloomConfig } from &#39;@three-ws/viewer-presets/bloom&#39;;
+</code></pre>
+<h2>Presets</h2>
+<h3>Light rig (<code>./lights</code>)</h3>
+<p><code>buildLightRig(THREE, overrides?)</code> returns a <code>THREE.Group</code> containing five spotlights - fill (blue rim), back (warm rim), key (soft face fill), lift (body/shoe wash), and
+silhouette (arms/legs) - plus a head target and shoe target the lights aim at.
+Positions, angles, intensities, and colors come from <code>LIGHT_CONFIG</code>; <code>overrides</code>
+patches the <code>defaults</code> block (e.g. <code>keyLightIntensity</code>, <code>fillLightColor</code>,
+<code>backLightPosition</code>, <code>lightTarget</code>).</p>
+<h3>Floor reflection (<code>./floor</code>)</h3>
+<p><code>FLOOR_REFLECTION_DEFAULTS</code> holds reflector parameters (<code>resolution</code>, <code>mixBlur</code>,
+<code>mixStrength</code>, <code>blur</code>, <code>mirror</code>, depth thresholds, <code>planeSize</code>, fog range, …) using
+the same names as visage&#39;s <code>FloorReflection</code> component. <code>floorReflectionConfig(props)</code>
+merges your overrides; <code>color</code> is <strong>required</strong> and should match the canvas background
+so the plane fades in seamlessly.</p>
+<h3>Bloom (<code>./bloom</code>)</h3>
+<p><code>BLOOM_DEFAULTS</code> is a verbatim-tuned bloom config (<code>luminanceThreshold</code>,
+<code>luminanceSmoothing</code>, <code>mipmapBlur</code>, <code>intensity</code>, <code>kernelSize</code>).
+<code>bloomConfig(overrides?)</code> merges your changes over it.</p>
+<h3>Materials (<code>./materials</code>)</h3>
+<p>Where the rig above tunes how a scene is <em>lit</em>, this module tunes how a model&#39;s
+<em>surfaces</em> read. <code>MATERIAL_PRESETS</code> is a curated set of physically-plausible
+looks - <code>chrome</code>, <code>gold</code>, <code>copper</code>, <code>brushedSteel</code>, <code>gunmetal</code>, <code>matte</code>,
+<code>glossy</code>, <code>rubber</code>, <code>ceramic</code>, <code>glass</code>, <code>realGlass</code>, <code>wood</code>, <code>stone</code>, <code>fabric</code>,
+<code>skin</code>, <code>carPaint</code>, <code>neon</code>, <code>holographic</code> - each a frozen parameter set.</p>
+<p>Most presets are plain <code>MeshStandardMaterial</code> fields (color, metalness,
+roughness, emissive, envMapIntensity, transparency for the legacy <code>glass</code>).
+A few use <strong>measured, physically-real</strong> <code>MeshPhysicalMaterial</code>-only fields - <code>applyMaterialPreset</code> writes these when the target material has the field and
+silently skips them on a plain Standard material:</p>
+<table>
+<thead>
+<tr>
+<th>Preset</th>
+<th>Physical fields</th>
+<th>Real-world basis</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>skin</code></td>
+<td><code>sheen</code>, <code>sheenColor</code>, <code>sheenRoughness</code>, <code>specularIntensity</code></td>
+<td>roughness 0.45 - 0.6 (measured bare-skin range), 0 metalness, sheen approximates subsurface scattering, specular F0 below the 0.04 default (skin reflects ~2.8%)</td>
+</tr>
+<tr>
+<td><code>carPaint</code></td>
+<td><code>clearcoat</code>, <code>clearcoatRoughness</code></td>
+<td>KHR_materials_clearcoat - a near-mirror lacquer layer over a metallic base coat</td>
+</tr>
+<tr>
+<td><code>realGlass</code></td>
+<td><code>transmission</code>, <code>thickness</code>, <code>ior</code>, <code>attenuationColor</code>, <code>attenuationDistance</code></td>
+<td>KHR_materials_transmission - real refraction, not alpha blending; <code>ior: 1.45</code> is soda-lime glass</td>
+</tr>
+<tr>
+<td><code>brushedSteel</code></td>
+<td><code>anisotropy</code>, <code>anisotropyRotation</code></td>
+<td>KHR_materials_anisotropy - directional micro-groove scattering from brushing</td>
+</tr>
+<tr>
+<td><code>fabric</code></td>
+<td><code>sheen</code>, <code>sheenColor</code>, <code>sheenRoughness</code></td>
+<td>soft grazing-angle highlight woven cloth shows</td>
+</tr>
+</tbody></table>
+<p><code>realGlass</code> and <code>glass</code> are deliberately both kept: <code>glass</code> is the cheap
+opacity-blend look (works on any renderer, any material type); <code>realGlass</code>
+needs a <code>MeshPhysicalMaterial</code> and the renderer&#39;s transmission pass but
+actually refracts what&#39;s behind it.</p>
+<pre><code class="language-js">import { applyMaterialPreset, materialVariants } from &#39;@three-ws/viewer-presets/materials&#39;;
+
+// Re-skin every standard material on a loaded glTF, non-destructively:
+const handle = applyMaterialPreset(THREE, gltf.scene, &#39;chrome&#39;);
+// … later, put it back exactly as it was:
+handle.restore();
+
+// Fan a base look out into reproducible colorway variants (same seed → same set):
+const variants = materialVariants(&#39;gold&#39;, { seed: 42, count: 6 });
+variants.forEach((v) =&gt; console.log(v.label, v.config.color));
+</code></pre>
+<p><code>applyMaterialPreset</code> only touches materials that expose the standard PBR knobs
+(a <code>MeshBasicMaterial</code>, sprite, or line material is skipped), captures the prior
+values, and hands back a <code>restore()</code> - so edits are a reversible layer over the
+original asset. <code>materialVariants</code> is pure and deterministic per <code>seed</code>, aligning
+with Forge&#39;s <code>seed</code> semantics so a variant set is shareable by number.</p>
+<h2>API</h2>
+<table>
+<thead>
+<tr>
+<th>Export</th>
+<th>Signature</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>buildLightRig(THREE, overrides?)</code></td>
+<td><code>(THREE, Partial&lt;LightingOverrides&gt;) =&gt; { group, headTarget, shoeTarget }</code></td>
+</tr>
+<tr>
+<td><code>LIGHT_CONFIG</code></td>
+<td>Frozen <code>LightConfig</code> (angles, positions, and a <code>defaults</code> overrides block).</td>
+</tr>
+<tr>
+<td><code>floorReflectionConfig(props)</code></td>
+<td><code>(Partial&lt;FloorReflectionProps&gt; &amp; { color }) =&gt; FloorReflectionProps</code>; throws if <code>color</code> is missing.</td>
+</tr>
+<tr>
+<td><code>FLOOR_REFLECTION_DEFAULTS</code></td>
+<td>Frozen floor-reflection defaults (no <code>color</code>).</td>
+</tr>
+<tr>
+<td><code>bloomConfig(overrides?)</code></td>
+<td><code>(Partial&lt;BloomProps&gt;) =&gt; BloomProps</code></td>
+</tr>
+<tr>
+<td><code>BLOOM_DEFAULTS</code></td>
+<td>Frozen bloom defaults.</td>
+</tr>
+<tr>
+<td><code>MATERIAL_PRESETS</code> / <code>MATERIAL_PRESET_NAMES</code></td>
+<td>Frozen map of PBR presets, and their ids in order.</td>
+</tr>
+<tr>
+<td><code>materialPreset(idOrConfig, overrides?)</code></td>
+<td><code>(string | Partial&lt;MaterialPreset&gt;, overrides?) =&gt; MaterialPreset</code>; throws on unknown id.</td>
+</tr>
+<tr>
+<td><code>applyMaterialPreset(THREE, root, idOrConfig, opts?)</code></td>
+<td><code>(THREE, Object3D, preset) =&gt; { restore(), count }</code> - non-destructive.</td>
+</tr>
+<tr>
+<td><code>materialVariants(base, opts?)</code></td>
+<td><code>(preset, { seed, count, hueSpread, jitter }) =&gt; MaterialVariant[]</code> - seeded, reproducible.</td>
+</tr>
+</tbody></table>
+<h2>Requirements</h2>
+<ul>
+<li>Node <code>&gt;=18</code>.</li>
+<li>Optional peer dependency: <code>three</code> <code>&gt;=0.150.0</code> (only for <code>buildLightRig</code>; passed in, not imported).</li>
+<li>Run the test suite with <code>npm test</code> (Node&#39;s built-in <code>node:test</code>).</li>
+</ul>
+<h2>Attribution</h2>
+<p>Preset values are derived from Ready Player Me&#39;s <code>visage</code> viewer (MIT) and re-tuned
+for three.ws. See <a href="./NOTICE">NOTICE</a> for details. This package is distributed under
+the Apache-2.0 license; see <a href="./LICENSE">LICENSE</a>.</p>
+<h2>Related packages</h2>
+<ul>
+<li><a href="https://www.npmjs.com/package/@three-ws/avatar"><code>@three-ws/avatar</code></a> - the avatar SDK whose viewer these presets are tuned for.</li>
+<li><a href="https://www.npmjs.com/package/@three-ws/agent-ui"><code>@three-ws/agent-ui</code></a> - the avatar-overlay SDK.</li>
+</ul>
+<h2>Links</h2>
+<ul>
+<li>Homepage: <a href="https://three.ws">https://three.ws</a></li>
+<li>Changelog: <a href="https://three.ws/changelog">https://three.ws/changelog</a></li>
+<li>Issues: <a href="https://github.com/nirholas/three.ws/issues">https://github.com/nirholas/three.ws/issues</a></li>
+<li>License: Apache-2.0, see <a href="./LICENSE">LICENSE</a></li>
+</ul>
+<hr>
+<p align="center">
+  <sub>
+    Part of the <a href="https://three.ws">three.ws</a> SDK suite - 3D AI agents, on-chain identity, and agent payments.<br/>
+    <a href="https://three.ws">Website</a> · <a href="https://three.ws/changelog">Changelog</a> · <a href="https://github.com/nirholas/three.ws">GitHub</a>
+  </sub>
+</p><hr>
+<p>Part of <a href="https://three.ws">three.ws</a>, the open-source platform for 3D AI agents. This repository is exported from the <a href="https://github.com/nirholas/three.ws/tree/main/packages/viewer-presets">monorepo</a>, which is the source of truth: open issues here, and send larger changes there.</p>
+
+</main>
+</body>
+</html>

@@ -1,0 +1,11 @@
+cff-version: 1.2.0
+message: If you use this software, please cite it as below.
+title: "@three-ws/viewer-presets"
+abstract: "Tuned visual presets for three.ws avatar viewers — light rigs, floor reflection, bloom, and PBR material presets (chrome/gold/glass/…) with seeded variants."
+type: software
+authors:
+  - name: three.ws contributors
+repository-code: "https://github.com/nirholas/three-ws-viewer-presets"
+url: "https://nirholas.github.io/three-ws-viewer-presets/"
+license: Apache-2.0
+version: 0.4.1

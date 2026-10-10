@@ -1,0 +1,12 @@
+@three-ws/viewer-presets
+Copyright (c) 2026 three.ws
+
+This product includes visual preset values (light rig intensities, tone-mapping,
+floor reflection, and bloom configuration) derived from the open-source "visage"
+viewer by Ready Player Me, used under the MIT License.
+
+  Ready Player Me visage — https://github.com/readyplayerme/visage
+  Copyright (c) Ready Player Me — MIT License
+
+The derived preset values have been re-tuned for three.ws avatar viewers. This
+package is distributed under a proprietary license; see LICENSE.

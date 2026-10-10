@@ -1,0 +1,76 @@
+{
+	"name": "@three-ws/viewer-presets",
+	"version": "0.4.1",
+	"description": "Tuned visual presets for three.ws avatar viewers — light rigs, floor reflection, bloom, and PBR material presets (chrome/gold/glass/…) with seeded variants.",
+	"keywords": [
+		"three.ws",
+		"three.js",
+		"avatar",
+		"viewer",
+		"lighting",
+		"postprocessing",
+		"bloom",
+		"floor-reflection",
+		"pbr",
+		"material",
+		"restyle",
+		"readyplayerme-alternative",
+		"visage-derived",
+		"presets",
+		"three-ws",
+		"threejs",
+		"ai-agents",
+		"javascript",
+		"esm",
+		"zero-dependencies",
+		"three-js"
+	],
+	"author": "three.ws <support@three.ws> (https://three.ws)",
+	"license": "Apache-2.0",
+	"homepage": "https://nirholas.github.io/three-ws-viewer-presets/",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/nirholas/three-ws-viewer-presets.git"
+	},
+	"type": "module",
+	"main": "./src/index.js",
+	"module": "./src/index.js",
+	"types": "./src/index.d.ts",
+	"exports": {
+		".": {
+			"types": "./src/index.d.ts",
+			"import": "./src/index.js",
+			"default": "./src/index.js"
+		},
+		"./lights": "./src/lights.js",
+		"./floor": "./src/floor.js",
+		"./bloom": "./src/bloom.js",
+		"./materials": "./src/materials.js"
+	},
+	"files": [
+		"src",
+		"README.md",
+		"LICENSE",
+		"NOTICE"
+	],
+	"scripts": {
+		"test": "node --test test/*.test.js"
+	},
+	"peerDependencies": {
+		"three": ">=0.150.0"
+	},
+	"peerDependenciesMeta": {
+		"three": {
+			"optional": true
+		}
+	},
+	"engines": {
+		"node": ">=18"
+	},
+	"bugs": {
+		"url": "https://github.com/nirholas/three-ws-viewer-presets/issues"
+	},
+	"publishConfig": {
+		"access": "public"
+	}
+}

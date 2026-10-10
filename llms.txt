@@ -1,0 +1,17 @@
+# @three-ws/viewer-presets
+
+> Tuned visual presets for three.ws avatar viewers — light rigs, floor reflection, bloom, and PBR material presets (chrome/gold/glass/…) with seeded variants.
+
+- Repository: https://github.com/nirholas/three-ws-viewer-presets
+- Documentation: https://nirholas.github.io/three-ws-viewer-presets/
+- npm: https://www.npmjs.com/package/@three-ws/viewer-presets
+- License: Apache-2.0
+- Part of three.ws: https://three.ws
+
+## Docs
+
+- [README](https://github.com/nirholas/three-ws-viewer-presets/blob/main/README.md): install, usage and full API reference
+- [Full text for LLMs](https://nirholas.github.io/three-ws-viewer-presets/llms-full.txt): the entire README as plain text
+- [AGENTS.md](https://github.com/nirholas/three-ws-viewer-presets/blob/main/AGENTS.md): conventions for coding agents
+- [Security policy](https://github.com/nirholas/three-ws-viewer-presets/blob/main/SECURITY.md)
+- [Contributing](https://github.com/nirholas/three-ws-viewer-presets/blob/main/CONTRIBUTING.md)
