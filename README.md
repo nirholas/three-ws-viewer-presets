@@ -188,3 +188,30 @@ the Apache-2.0 license; see [LICENSE](./LICENSE).
 ---
 
 Part of [three.ws](https://three.ws), the open-source platform for 3D AI agents. This repository is exported from the [monorepo](https://github.com/nirholas/three.ws/tree/main/packages/viewer-presets), which is the source of truth: open issues here, and send larger changes there.
+
+<!-- three.ws:growth -->
+## Support the project
+
+If three-ws-viewer-presets saves you time, **[star it on GitHub](https://github.com/nirholas/three-ws-viewer-presets)**. Stars are how other developers and AI agents find the repositories worth trusting, and they cost you one click.
+
+Know someone who would use it? [Post on X](https://twitter.com/intent/tweet?text=three-ws-viewer-presets%3A%20Tuned%20visual%20presets%20for%20three.ws%20avatar%20viewers%3A%20light%20rigs%2C%20floor%20reflection%2C%20bloom%2C%20and%20PBR&url=https%3A%2F%2Fgithub.com%2Fnirholas%2Fthree-ws-viewer-presets) · [Share on Bluesky](https://bsky.app/intent/compose?text=three-ws-viewer-presets%3A%20Tuned%20visual%20presets%20for%20three.ws%20avatar%20viewers%3A%20light%20rigs%2C%20floor%20reflection%2C%20bloom%2C%20and%20PBR%20https%3A%2F%2Fgithub.com%2Fnirholas%2Fthree-ws-viewer-presets) · [Share on LinkedIn](https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fgithub.com%2Fnirholas%2Fthree-ws-viewer-presets) · [Submit to Hacker News](https://news.ycombinator.com/submitlink?u=https%3A%2F%2Fgithub.com%2Fnirholas%2Fthree-ws-viewer-presets&t=three-ws-viewer-presets%3A%20Tuned%20visual%20presets%20for%20three.ws%20avatar%20viewers%3A%20light%20rigs%2C%20floor%20reflection%2C%20bloom%2C%20and%20PBR) · [Share on Reddit](https://www.reddit.com/submit?url=https%3A%2F%2Fgithub.com%2Fnirholas%2Fthree-ws-viewer-presets&title=three-ws-viewer-presets%3A%20Tuned%20visual%20presets%20for%20three.ws%20avatar%20viewers%3A%20light%20rigs%2C%20floor%20reflection%2C%20bloom%2C%20and%20PBR)
+
+## Built for AI agents too
+
+Coding agents and LLM tooling can read this repo directly: [AGENTS.md](./AGENTS.md), [llms.txt](./llms.txt), [llms-full.txt](./llms-full.txt). Point an agent at `https://github.com/nirholas/three-ws-viewer-presets` and it has the context it needs.
+
+## More from the same author
+
+- [All repositories by nirholas](https://github.com/nirholas/nirholas#readme): the full catalog, grouped by topic
+- [three.ws](https://three.ws): the platform for 3D AI agents with Solana wallets, a skill marketplace and x402 payments
+- Questions or ideas: [open an issue](https://github.com/nirholas/three-ws-viewer-presets/issues) or [start a discussion](https://github.com/nirholas/three-ws-viewer-presets/discussions)
+
+## Contributors
+
+[![Contributors](https://contrib.rocks/image?repo=nirholas/three-ws-viewer-presets)](https://github.com/nirholas/three-ws-viewer-presets/graphs/contributors)
+
+## Star history
+
+[![Star History Chart](https://api.star-history.com/svg?repos=nirholas/three-ws-viewer-presets&type=Date)](https://www.star-history.com/#nirholas/three-ws-viewer-presets&Date)
+
+<!-- /three.ws:growth -->
