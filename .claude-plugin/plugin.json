@@ -1,0 +1,18 @@
+{
+  "name": "three-ws-viewer-presets",
+  "version": "0.4.1",
+  "description": "Tuned light rigs, floor reflection, bloom and PBR material presets for three.ws avatar viewers.",
+  "author": {
+    "name": "nirholas"
+  },
+  "repository": "https://github.com/nirholas/three-ws-viewer-presets",
+  "license": "Apache-2.0",
+  "keywords": [
+    "three-js",
+    "avatar",
+    "pbr",
+    "lighting",
+    "three-ws"
+  ],
+  "homepage": "https://nirholas.github.io/three-ws-viewer-presets/"
+}
