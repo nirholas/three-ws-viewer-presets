@@ -7,8 +7,9 @@
   "plugins": [
     {
       "name": "three-ws-viewer-presets",
-      "source": "./",
+      "source": "./plugins/three-ws-viewer-presets",
       "description": "Tuned light rigs, floor reflection, bloom and PBR material presets for three.ws avatar viewers.",
+      "category": "development",
       "tags": [
         "three-js",
         "avatar",

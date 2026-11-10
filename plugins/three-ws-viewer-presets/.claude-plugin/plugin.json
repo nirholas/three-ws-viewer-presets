@@ -6,6 +6,7 @@
     "name": "nirholas"
   },
   "repository": "https://github.com/nirholas/three-ws-viewer-presets",
+  "homepage": "https://nirholas.github.io/three-ws-viewer-presets/",
   "license": "Apache-2.0",
   "keywords": [
     "three-js",
@@ -13,6 +14,5 @@
     "pbr",
     "lighting",
     "three-ws"
-  ],
-  "homepage": "https://nirholas.github.io/three-ws-viewer-presets/"
+  ]
 }
