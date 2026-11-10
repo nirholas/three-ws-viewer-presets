@@ -1,0 +1,21 @@
+{
+  "name": "three-ws-viewer-presets",
+  "owner": {
+    "name": "nirholas"
+  },
+  "description": "Tuned light rigs, floor reflection, bloom and PBR material presets for three.ws avatar viewers.",
+  "plugins": [
+    {
+      "name": "three-ws-viewer-presets",
+      "source": "./",
+      "description": "Tuned light rigs, floor reflection, bloom and PBR material presets for three.ws avatar viewers.",
+      "tags": [
+        "three-js",
+        "avatar",
+        "pbr",
+        "lighting",
+        "three-ws"
+      ]
+    }
+  ]
+}
